@@ -14,14 +14,29 @@
     }
 
     .margin {
-      margin-right: 10px;
+      margin-right: 1vw;
+    }
+
+    @media screen and (min-width: 768px){
+      .margin {
+        margin-right: 10px;
+      }
     }
 
     .text {
-      margin-top: 50px;
-      margin-bottom: 24px;
-      
-      font-size: 20px;
+      margin-top: 4vw;
+      margin-bottom: 2vw;
+          
+      font-size: 4vw;
+      }
+
+    @media screen and (min-width: 768px){
+      .text {
+        margin-top: 50px;
+        margin-bottom: 24px;
+          
+        font-size: 20px;
+      }
     }
 
     .timer {
@@ -30,7 +45,14 @@
       margin-left: auto;
       margin-right: auto;
 
-      font-size: 24px;
+      font-size: 4vw;
+      color: #085cbbd2;
+    }
+
+    @media screen and (min-width: 768px){
+      .timer {
+        font-size: 24px;
+      }
     }
 
     .field {
@@ -39,8 +61,8 @@
     }
 
     .line {
-      margin-top: 24px;
       color: #000fe0;
+        margin-top: 24px;
     }
   </style>
   <title>Timer</title>
