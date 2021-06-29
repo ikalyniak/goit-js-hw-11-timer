@@ -11,11 +11,12 @@ class CountdownTimer {
   }
 
   initial(targetDate) {
-    setInterval(() => {
+    const id = setInterval(() => {
       const deltaTime = targetDate - Date.now();
       const timeComponents = this.getTimeComponents(deltaTime);
+
       this.updateTimerFace(timeComponents);
-      // console.log( a)
+      if (deltaTime <= 0) this.stop(id,deltaTime);
     }, 1000);
   }
 
@@ -38,6 +39,12 @@ class CountdownTimer {
     this.refs.mins.textContent = `${mins}`;
     this.refs.secs.textContent = `${secs}`;
   }
+
+  stop(id, deltaTime) {
+    clearInterval(id);
+    this.updateTimerFace({ days: '0', hours: '00', mins: '00', secs: '00' });
+    // console.log(this.getTimeComponents(deltaTime))
+  }
 };
 
 const timer1 = new CountdownTimer({
@@ -50,3 +57,7 @@ const timer2 = new CountdownTimer({
   targetDate: new Date('Jan 01, 2022'),
 });
 
+const timer3 = new CountdownTimer({
+  selector: '#timer-3',
+  targetDate: new Date('Jun 29, 2021 15:58:00'),
+});
